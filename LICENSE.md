@@ -1,33 +1,29 @@
-**Software License Agreement**
+MIT License
 
-**1. Introduction**  
-This Software License Agreement ("Agreement") is a legal agreement between you ("User") and [Your Company or Name] ("Licensor") for the use of this software ("Software"). By installing, copying, or otherwise using the Software, you agree to be bound by the terms of this Agreement.
+Copyright (c) 2025
 
-**2. License Grant**  
-Licensor grants the User a non-exclusive, non-transferable, revocable license to use the Software solely for personal and lawful purposes.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-**3. Restrictions**  
-The User may **not**:
-- Use the Software to copy, distribute, or reproduce copyrighted DVDs that they do not legally own.
-- Circumvent any digital rights management (DRM) or encryption technologies protecting copyrighted content.
-- Use the Software for any unlawful activity, including piracy or unauthorized duplication of copyrighted material.
-- Modify, reverse-engineer, decompile, or disassemble the Software, except as permitted by applicable law.
+1. The above copyright notice and this permission notice shall be included in all
+   copies or substantial portions of the Software.
+2. The Software is provided "as is", without warranty of any kind, express or
+   implied, including but not limited to the warranties of merchantability,
+   fitness for a particular purpose and noninfringement. In no event shall the
+   authors or copyright holders be liable for any claim, damages or other
+   liability, whether in an action of contract, tort or otherwise, arising from,
+   out of or in connection with the Software or the use or other dealings in the
+   Software.
+3. This software is intended **only for personal use with legally owned DVDs.**
+   Copying or distributing DVDs **that you do not legally own is piracy and is
+   illegal** in many jurisdictions. The authors of this software do not
+   condone or support the use of this software for illegal purposes.
+4. Users are responsible for ensuring that their use of the Software complies
+   with all applicable local, state, national, and international laws.
 
-**4. Legal Compliance**  
-The User acknowledges that unauthorized reproduction or distribution of copyrighted content using this Software is illegal under national and international copyright laws. **If the User engages in such activities, they do so at their own risk and may be subject to civil and criminal penalties.** The Licensor assumes no responsibility for any misuse of the Software.
-
-**5. Disclaimer of Warranties**  
-The Software is provided "as is" without warranties of any kind, either express or implied. The Licensor does not warrant that the Software will be error-free or fit for any particular purpose.
-
-**6. Limitation of Liability**  
-To the maximum extent permitted by law, the Licensor shall not be liable for any damages arising from the use or misuse of the Software, including but not limited to loss of data, legal penalties, or hardware failure.
-
-**7. Termination**  
-This Agreement is effective until terminated. The User’s rights under this Agreement will terminate automatically if they fail to comply with any of its terms.
-
-**8. Governing Law**  
-This Agreement shall be governed by and construed in accordance with the laws of your country and state, without regard to its conflict of law principles.
-
-**9. Acknowledgment**  
-By using this Software, the User acknowledges that they have read and understood this Agreement and agree to be bound by its terms.
+By using this software, you agree to abide by these terms.
 
