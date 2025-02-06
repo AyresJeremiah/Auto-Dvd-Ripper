@@ -22,28 +22,13 @@ sudo apt update && sudo apt upgrade -y
 ### **Step 2: Copy Files**
 Ensure your `setup.sh` script and `scripts.zip` archive are available. Then, follow these steps:
 
-1. **Create a directory for setup** (optional but recommended):
-   ```bash
-   mkdir -p ~/dvd-ripper-setup
-   cd ~/dvd-ripper-setup
-   ```
-
-2. **Place `setup.sh` and `scripts.zip` in this directory.**  
-   If you are transferring from another machine, use `scp`:
-   ```bash
-   scp setup.sh scripts.zip user@your-ubuntu-server:~/dvd-ripper-setup/
-   ```
-
-3. **Verify the files exist:**
-   ```bash
-   ls -l
-   ```
-
-4. **Run the Setup Script:**
-   ```bash
-   chmod +x setup.sh
-   sudo ./setup.sh
-   ```
+1. Clone this repo:
+    git clone https://github.com/AyresJeremiah/Auto-Dvd-Ripper.git
+2. Edit the dvd-ripper.conf to you liking.
+    Note if you chage the dir from "/etc/dvd-ripper/" you will need to edit the service script.
+3. Make the script executable and run it.
+    chmod +x setup.sh
+    sudo ./setup.sh
 
 This will:
 - Install required packages (`HandBrakeCLI`, `inotify-tools`, `cifs-utils`, etc.)
@@ -55,7 +40,7 @@ This will:
 ---
 
 ## **Configuration**
-Edit `/etc/dvd-ripper.conf` to customize settings:
+Edit `/etc/dvd-ripper/dvd-ripper.conf` to customize settings:
 ```bash
 sudo nano /etc/dvd-ripper.conf
 ```
@@ -72,8 +57,8 @@ SHARE_PASS="your_password"
 # Local Mount Points
 WATCH_DEVICE="/dev/sr0"
 MOUNT_POINT="/mnt/dvd"
-OUTPUT_DIR="/home/jeremiah/dvd-rips"
-TEMP_OUTPUT_DIR="/home/jeremiah/dvd-rips-temp"
+OUTPUT_DIR="/mnt/windows-share"
+TEMP_OUTPUT_DIR="/home/user/dvd-rips-temp"
 WINDOWS_MOUNT="/mnt/windows-share"
 ```
 
