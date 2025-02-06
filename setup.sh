@@ -1,13 +1,19 @@
 #!/bin/bash
 
-# Define constants
+# Load configuration from dvd-ripper.conf
 CONFIG_FILE="/etc/dvd-ripper.conf"
+if [[ -f "$CONFIG_FILE" ]]; then
+    source "$CONFIG_FILE"
+else
+    echo "Configuration file not found! Exiting..."
+    exit 1
+fi
+
+LOG_FILE="/var/log/dvd-ripper-setup.log"
 SCRIPT_DIR="/opt/dvd-ripper"
 SERVICE_DIR="/etc/systemd/system"
 ZIP_FILE="scripts.zip"
-LOG_FILE="/var/log/dvd-ripper-setup.log"
 
-# Function to log messages
 log() {
     echo "$(date '+%Y-%m-%d %H:%M:%S') - $1" | tee -a "$LOG_FILE"
 }
@@ -25,30 +31,8 @@ sudo mkdir -p "$SCRIPT_DIR"
 sudo unzip -o "$ZIP_FILE" -d "$SCRIPT_DIR"
 sudo chmod +x "$SCRIPT_DIR"/*.sh
 
-# Step 3: Create Configuration File
-if [ ! -f "$CONFIG_FILE" ]; then
-    log "Creating configuration file..."
-    sudo tee "$CONFIG_FILE" > /dev/null <<EOL
-# DVD Ripper Configuration File
-
-# Windows Share Settings
-SHARE_PATH="//192.168.1.100/SharedFolder"
-SHARE_USER="your_user"
-SHARE_PASS="your_password"
-
-# Local Mount Points
-WATCH_DEVICE="/dev/sr0"
-MOUNT_POINT="/mnt/dvd"
-OUTPUT_DIR="/home/jeremiah/dvd-rips"
-TEMP_OUTPUT_DIR="/home/jeremiah/dvd-rips-temp"
-WINDOWS_MOUNT="/mnt/windows-share"
-EOL
-fi
-
-# Step 4: Create Systemd Services
-log "Creating systemd service files..."
-
-# Auto Rip DVD Service
+# Step 3: Create Systemd Service for Auto Rip DVD
+log "Creating systemd service file for auto-rip-dvd..."
 sudo tee "$SERVICE_DIR/auto-rip-dvd.service" > /dev/null <<EOL
 [Unit]
 Description=Auto DVD Ripping Service
@@ -64,30 +48,13 @@ Group=$USER
 WantedBy=multi-user.target
 EOL
 
-# Watch and Move Service
-sudo tee "$SERVICE_DIR/watch-and-move.service" > /dev/null <<EOL
-[Unit]
-Description=Watch and Move DVD Files to Share
-After=network.target
-
-[Service]
-ExecStart=$SCRIPT_DIR/watch-and-move.sh
-Restart=always
-User=$USER
-Group=$USER
-
-[Install]
-WantedBy=multi-user.target
-EOL
-
-# Step 5: Enable and Start Services
-log "Enabling and starting services..."
+# Step 4: Enable and Start Services
+log "Enabling and starting auto-rip-dvd service..."
 sudo systemctl daemon-reload
-sudo systemctl enable --now auto-rip-dvd watch-and-move
+sudo systemctl enable --now auto-rip-dvd
 
-# Step 6: Setup Windows Share Mount
+# Step 5: Setup Windows Share Mount
 log "Setting up Windows share mount..."
-source "$CONFIG_FILE"
 echo "$SHARE_USER=$SHARE_PASS" | sudo tee /etc/.smbcredentials > /dev/null
 sudo chmod 600 /etc/.smbcredentials
 
@@ -95,5 +62,5 @@ echo "$SHARE_PATH $WINDOWS_MOUNT cifs credentials=/etc/.smbcredentials,iocharset
 sudo mkdir -p "$WINDOWS_MOUNT"
 sudo mount -a
 
-log "Setup complete! Services are now running."
+log "Setup complete! Auto-rip service is now running."
 
