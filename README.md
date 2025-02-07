@@ -29,6 +29,13 @@ Ensure your `setup.sh` script and `scripts.zip` archive are available. Then, fol
 3. Make the script executable and run it.
     chmod +x setup.sh
     sudo ./setup.sh
+   
+### **Step 3: Get decryption package**
+Install and configure libdvd
+```bash
+sudo apt install libdvd-pkg
+sudo dpkg-reconfigure libdvd-pkg
+```
 
 This will:
 - Install required packages (`HandBrakeCLI`, `inotify-tools`, `cifs-utils`, etc.)
