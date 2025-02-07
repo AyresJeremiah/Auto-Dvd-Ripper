@@ -23,12 +23,18 @@ sudo apt update && sudo apt upgrade -y
 Ensure your `setup.sh` script and `scripts.zip` archive are available. Then, follow these steps:
 
 1. Clone this repo:
+   
+   ```bash
     git clone https://github.com/AyresJeremiah/Auto-Dvd-Ripper.git
-2. Edit the dvd-ripper.conf to you liking.
+   ```
+3. Edit the dvd-ripper.conf to you liking.
     Note if you chage the dir from "/etc/dvd-ripper/" you will need to edit the service script.
-3. Make the script executable and run it.
+4. Make the script executable and run it.
+   
+   ```bash
     chmod +x setup.sh
     sudo ./setup.sh
+   ```
    
 ### **Step 3: Get decryption package**
 Install and configure libdvd
